@@ -1,0 +1,13 @@
+{
+  "apiServerBaseUrl": "",
+  "appContext": "/agent-profile",
+  "areaIdentifier": "na1",
+  "assetsServerBaseUrl": "/agent-profile/assets/<version>",
+  "currentEnv": "",
+  "defaultLang": "en_US",
+  "global.web_app.url" : "http://cxone.dev.niceincontact.com",
+  "protocol": "https://",
+  "npxBaseUrl": "https://qa9app.pune.nice.com",
+  "translationKey": "cxone-webapp-agent-profile-ui",
+  "websocketServerBaseUrl": ""
+}

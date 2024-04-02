@@ -1,0 +1,36 @@
+<br />
+<a [routerLink]="['/hello']">
+      <button class="cxone-btn btn-big btn-primary" tabindex="0">
+            Back to Angular Validation page
+      </button>
+</a>
+<app-hierarchymodal></app-hierarchymodal>
+
+<br>
+<h3>Sol Components Integration Demo</h3>
+
+
+
+<sol-button variant="primary" [size]="'large'" ariaLabel="help button" [id]="'tooltip-1'" solTooltip [trigger]="'click'"
+      [position]="'bottom'" [interactive]="true" [darkMode]="true" [title]="'This is a tooltip'"
+      [content]="'Tooltips are used to describe or identify an element. In most scenarios, tooltips help the user understand the meaning, function or alt-text of an element.'"
+      [arrow]="true">Tooltip</sol-button>
+
+
+<div class="range-sliders">
+      <h4>Sol Range slider</h4>
+      <sol-range-slider [step]="1" [startPoints]="[-20, -14, -9, -5, 0, 5]" [enableTooltipOnDrag]="true"
+            [connect]="[true, true, true, true, true, true, true]"
+            [colorClasses]="['c-1-darkRed', 'c-2-mediumRed', 'c-3-lightRed', 'c-4-white', 'c-5-lightGreen', 'c-6-mediumGreen', 'c-7-darkGreen']"
+            [enableArrow]="true" [disabled]="false">
+      </sol-range-slider>
+</div>
+
+<div class="range-sliders">
+      <h4>CXone components core UI Range slider</h4>
+      <cxone-range-slider [step]="1" [startPoints]="[-20, -14, -9, -5, 0, 5]" [enableTooltipOnDrag]="true"
+            [connect]="[true, true, true, true, true, true, true]"
+            [colorClasses]="['c-1-darkRed', 'c-2-mediumRed', 'c-3-lightRed', 'c-4-white', 'c-5-lightGreen', 'c-6-mediumGreen', 'c-7-darkGreen']"
+            [enableArrow]="true" [disabled]="false">
+      </cxone-range-slider>
+</div>

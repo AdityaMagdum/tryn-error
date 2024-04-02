@@ -1,0 +1,11 @@
+<div class="grid-wrapper">
+  <cxone-spinner class="appSpinner"></cxone-spinner>
+  <cxone-action-bar></cxone-action-bar>
+  <cxone-header-v2></cxone-header-v2>
+  <section class="main-content">
+    <cxone-sidebar-v2 [isToggleButtonEnabled]="sidebarToggleButton" [isCollapsed]="sidebarCollapsed"></cxone-sidebar-v2>
+    <main role="main">
+      <router-outlet></router-outlet>
+    </main>
+  </section>
+</div>

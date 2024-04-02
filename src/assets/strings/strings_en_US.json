@@ -1,0 +1,33 @@
+{
+  "app": {
+    "hello": "Hello form the app"
+  },
+  "successPage": {
+    "welcomeMsg": "Hello {{username}} "
+  },
+  "generalErrorMessages": {
+    "required": "This field is required."
+  },
+  "metaInfo": {
+    "hello": {
+      "title": "Hello Component"
+    },
+    "grid": {
+      "title": "Grid Demo"
+    },
+    "sol-demo" : {
+      "title": "Sol Demo"
+    },
+    "title": "Nice SaaS WFM ",
+    "description": "Nice SaaS WFM",
+    "faviconUrl": "assets/img/favicon-16x16.png"
+  },
+  "commonButtons": {
+    "ok": "OK",
+    "cancel": "Cancel"
+  },
+  "unsavedChanges": {
+    "title": "Unsaved Changes",
+    "message": "If you leave the page, your changes will be lost. Are you sure you want to continue?"
+  }
+}
