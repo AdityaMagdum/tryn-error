@@ -1,0 +1,268 @@
+:host {
+  display: block !important;
+}
+
+.agents-panel-container {
+  height: 100%;
+  padding: 0px;
+  background: white;
+  overflow-y: hidden !important;
+  margin-top: 2px;
+  border-radius: 4px;
+  .cxone-spinner {
+    display: flex;
+    height: calc(100% - 38px);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .agent-panel-header {
+    background-color: #f7f9fa;
+    display: flex;
+    position: relative;
+  }
+  .agent-panel-menu {
+    z-index: 1;
+    top: 43px;
+    right: 6px;
+    position: absolute;
+    cursor: pointer;
+  }
+  .agent-panel-name {
+    text-align: left;
+    font: normal normal 600 14px/11px OpenSans, sans-serif;
+    letter-spacing: 0px;
+    color: #485e69;
+    opacity: 1;
+    padding: 10px 30px 10px 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .skills-icon-title {
+    font-weight: 600;
+  }
+  .skills-icon-content {
+    font-size: 12px;
+  }
+  cxone-svg-sprite-icon.close-icon {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    cursor: pointer;
+  }
+  .admin-panel-container {
+    height: 100%;
+    position: relative;
+    .upper-tabs {
+      box-shadow: none !important;
+      .upper-tabs-header {
+        display: flex !important;
+        width: 100%;
+        padding: 0 10px;
+        position: relative;
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 10%);
+        .upper-tab {
+          background-color: none !important;
+          border-bottom: 3px solid transparent !important;
+          position: relative;
+          width: 24%;
+          &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            border-radius: 3px;
+            bottom: -3px;
+            left: 0;
+            background-color: transparent;
+          }
+          svg {
+            fill: #526b7a !important;
+          }
+          .agent-activity-tab-icon-gray,
+          .agent-contacts-tab-icon-gray,
+          .agent-contact-handling-tab-icon-gray,
+          .agent-scheduler-tab-icon-gray,
+          .agent-skills-tab-icon-gray {
+            display: block;
+          }
+          .agent-activity-tab-icon-blue,
+          .agent-contacts-tab-icon-blue,
+          .agent-contact-handling-tab-icon-blue,
+          .agent-scheduler-tab-icon-blue {
+            display: none;
+          }
+          &.isActive {
+            background-color: #f7f9fa !important;
+            .agent-activity-tab-icon-gray,
+            .agent-contacts-tab-icon-gray,
+            .agent-contact-handling-tab-icon-gray,
+            .agent-scheduler-tab-icon-gray {
+              display: none;
+            }
+            .agent-activity-tab-icon-blue,
+            .agent-contacts-tab-icon-blue,
+            .agent-contact-handling-tab-icon-blue,
+            .agent-scheduler-tab-icon-blue {
+              display: block;
+            }
+            &::after {
+              background-color: #007cbe;
+            }
+            svg {
+              fill: #007cbe !important;
+            }
+          }
+          .separator.visible {
+            background-color: none !important;
+            width: 0px !important;
+          }
+        }
+      }
+      .upper-tabs-content {
+        border-top: none !important;
+        height: calc(100% - 70px) !important;
+        .active-tab {
+          padding: 0;
+        }
+      }
+    }
+
+    sol-tabs {
+      box-shadow: 0 2px 6px #1f324d33;
+      height: 100%;
+      width: 100%;
+
+      .tabs-large {
+        background-color: #f7f9fa;
+
+        mat-tab-group.mat-tab-group.mat-primary {
+          box-shadow: none !important;
+
+          .mat-tab-header {
+            display: flex !important;
+            width: 100%;
+            padding: 0 10px;
+            position: relative;
+            box-shadow: 0px 4px 4px rgb(0 0 0 / 10%);
+            z-index: 1;
+            .mat-tab-label-container {
+              z-index: 0;
+
+              .mat-tab-list .mat-tab-labels {
+                .mat-tab-label {
+                  height: 45px;
+                  text-align: center;
+                  background-color: none !important;
+                  padding-top: 6px;
+                  width: 100%;
+                  position: relative;
+                  border-bottom-width: 0px;
+                  display: inline-block;
+                  cursor: pointer;
+
+                  &:hover {
+                    background-color: #f2f7fa;
+                  }
+
+                  .mat-tab-label-content {
+                    height: 100%;
+                  }
+
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 3px;
+                    border-radius: 3px;
+                    bottom: -3px;
+                    left: 0;
+                    background-color: transparent;
+                  }
+
+                  svg {
+                    fill: #526b7a !important;
+                  }
+
+                  .agent-scheduler-tab {
+                    gap: 0px;
+                  }
+
+                  .agent-activity-tab-icon-gray,
+                  .agent-contacts-tab-icon-gray,
+                  .agent-contact-handling-tab-icon-gray,
+                  .agent-scheduler-tab-icon-gray,
+                  .agent-skills-tab-icon-gray {
+                    display: block;
+                  }
+
+                  .agent-activity-tab-icon-blue,
+                  .agent-contacts-tab-icon-blue,
+                  .agent-contact-handling-tab-icon-blue,
+                  .agent-scheduler-tab-icon-blue {
+                    display: none;
+                  }
+                }
+
+                .mat-tab-label-active {
+                  border-bottom: 3px solid rgb(0, 124, 190) !important;
+                  color: rgb(0, 124, 190) !important;
+
+                  .agent-activity-tab-icon-gray,
+                  .agent-contacts-tab-icon-gray,
+                  .agent-contact-handling-tab-icon-gray,
+                  .agent-scheduler-tab-icon-gray {
+                    display: none;
+                  }
+
+                  .agent-activity-tab-icon-blue,
+                  .agent-contacts-tab-icon-blue,
+                  .agent-contact-handling-tab-icon-blue,
+                  .agent-scheduler-tab-icon-blue {
+                    display: block;
+                  }
+
+                  &::after {
+                    background-color: #007cbe;
+                  }
+
+                  svg {
+                    fill: #007cbe !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .mat-tab-body-wrapper {
+        background-color: #fff;
+        .mat-tab-body-content {
+          border-top: none !important;
+          overflow-y: auto;
+          display: block;
+        }
+      }
+    }
+  }
+  .spinner {
+    display: none !important;
+  }
+  .ag-body-horizontal-scroll-viewport {
+    overflow-x: hidden;
+  }
+  .ag-center-cols-viewport {
+    overflow-x: hidden;
+  }
+  .no-agent-acd-permission {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,87 @@
+.admin-agent-states-widget-container {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  font-family: OpenSans, sans-serif;
+  opacity: 1;
+  overflow: auto;
+  position: relative;
+  display: flex;
+  height: 50px;
+
+  &-metrices {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 24px;
+    align-items: center;
+
+    .admin-agent-states-widget-total {
+      min-width: 100px;
+      font-family: OpenSans, sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #333333;
+    }
+
+    .admin-agent-states-widget {
+      position: relative;
+      align-items: center;
+
+      ul {
+        list-style-type: none;
+        padding: 0px !important;
+        margin: 0;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        gap: 24px;
+
+        li {
+          min-width: 10%;
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          text-transform: uppercase;
+          font-size: 12px;
+
+          &:hover {
+            .admin-agent-states-widget-label {
+              transition: all 0.5s;
+              font-size: 12px;
+              font-weight: 600;
+              line-height: 14.34px;
+              min-width: 78px;
+            }
+          }
+
+          .admin-agent-states-widget-label {
+            transition: all 0.5s;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 14.34px;
+            min-width: 78px;
+            margin-right: 34px;
+          }
+
+          .admin-agent-states-widget-state {
+            &-category {
+              height: 12px;
+              width: 12px;
+              margin-right: 6px;
+              display: flex;
+              align-items: center;
+              // margin-top: 2px;
+            }
+          }
+
+          .admin-agent-states-widget-percentage {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 14.34px;
+            color: #131523;
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}

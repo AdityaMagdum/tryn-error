@@ -1,5 +1,5 @@
-import { IconSvgService } from '@niceltd/cxone-client-platform-services';
+import { IconSvgService } from 'cxone-client-services-platform';
 
 export const iconLoaderFactory = () => {
-    return async () => await IconSvgService.instance.loadAllIconsSprite();
+  return async () => await IconSvgService.instance.loadAllIconsSprite();
 };

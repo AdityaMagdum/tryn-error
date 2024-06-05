@@ -1,12 +1,5 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": false,
-    "schematicCollections": ["@angular-eslint/schematics"],
-    "cache": {
-      "enabled": false
-    }
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -22,13 +15,21 @@
       },
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "build",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "allowedCommonJsDependencies": [
+              "moment-timezone",
+              "sockjs-client",
+              "rxjs/internal/operators",
+              "sha1",
+              "fetch-intercept",
+              "css-element-queries"
+            ],
             "assets": [
               {
                 "glob": "**/*",
@@ -37,45 +38,41 @@
               },
               {
                 "glob": "**/*.json",
-                "input": "node_modules/@niceltd/cxone-components/assets/strings",
+                "input": "node_modules/cxone-components/assets/strings",
                 "output": "assets/strings/components/cxone-core-components"
               },
               {
                 "glob": "**/*.json",
-                "input": "node_modules/@niceltd/cxone-domain-components/assets/strings",
+                "input": "node_modules/cxone-domain-components/assets/strings",
                 "output": "assets/strings/components/cxone-domain-components"
+              },
+              {
+                "glob": "**/*.json",
+                "input": "node_modules/cxone-qm-library/assets/strings",
+                "output": "assets/strings/components/cxone-qm-library"
               }
             ],
             "styles": [
-              "node_modules/nouislider/dist/nouislider.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap/dist/css/bootstrap-theme.css",
+              "node_modules/swiper/swiper.min.css",
+              "node_modules/swiper/modules/navigation/navigation.min.css",
+              "node_modules/swiper/modules/pagination/pagination.min.css",
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "node_modules/primeng/resources/primeng.css",
               "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "node_modules/@niceltd/cxone-components/assets/styles/cxone-core.scss",
-              "node_modules/@niceltd/cxone-components/assets/styles/typography.scss",
+              "node_modules/cxone-components/assets/styles/cxone-core.scss",
+              "node_modules/nouislider/dist/nouislider.min.css",
+              "node_modules/nice-solaris-ngx/src/assets/design-tokens.css",
+              "node_modules/nice-solaris-ngx/src/assets/typefaces.css",
+              "src/assets/fonts/font-family.scss",
+              "node_modules/nice-solaris-ngx/toastr/src/lib/toastr.scss",
               "src/main.scss"
             ],
             "scripts": [],
-            "webWorkerTsConfig": "tsconfig.worker.json",
-            "commonChunk": false
+            "webWorkerTsConfig": "tsconfig.worker.json"
           },
           "configurations": {
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "outputHashing": "all",
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": {
-                "scripts": true,
-                "styles": true,
-                "vendor": true
-              },
-              "namedChunks": true,
-              "extraWebpackConfig": "webpack.instrumentation.js"
-            },
             "production": {
               "fileReplacements": [
                 {
@@ -94,15 +91,27 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "3mb",
+                  "maximumWarning": "7mb",
                   "maximumError": "9mb"
                 }
               ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": {
+                "scripts": true,
+                "styles": true,
+                "vendor": true
+              },
+              "namedChunks": true
             }
           }
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "webapp:build"
           },
@@ -111,19 +120,18 @@
               "browserTarget": "webapp:build:production"
             },
             "development": {
-              "browserTarget": "webapp:build:development",
-              "extraWebpackConfig": "webpack.instrumentation.js"
+              "browserTarget": "webapp:build:development"
             }
           }
         },
         "extract-i18n": {
-          "builder": "ngx-build-plus:extract-i18n",
+          "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "webapp:build"
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-builders/custom-webpack:karma",
           "options": {
             "codeCoverage": true,
             "main": "tests/karma/test.ts",
@@ -138,10 +146,56 @@
                 "input": "src/assets",
                 "output": "assets/"
               }
+            ],
+            "webWorkerTsConfig": "tsconfig.worker.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json",
+              "tsconfig.worker.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "webapp-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "tests/protractor/protractor.conf.js"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "tests/protractor/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
             ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@ngrx/schematics",
+      "@angular-eslint/schematics"
+    ],
+    "analytics": false
   }
 }

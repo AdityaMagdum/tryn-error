@@ -1,0 +1,83 @@
+.app-menu{
+    cursor: default;
+}
+
+.app-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title{
+    font-size: 18px;
+    color: #001633;
+    margin-left: 25px;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.constraints{
+    margin-top: 13px;
+    margin-left: 5vw;
+}
+
+.constraint-item{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 45px;
+    height: 35px;
+}
+
+.item-name{
+    width: 15vw;
+    font-size: 15px;
+    max-width: 10vw;
+}
+
+.item-enabled{
+    width: 12vw;
+    font-size: 13px;
+    max-width: 7vw;
+}
+
+.item-disabled{
+    width: 12vw;
+    font-size: 13px;
+    max-width: 7vw;
+}
+
+.item-hidden{
+    width: 12vw;
+    font-size: 13px;
+    max-width: 7vw;
+}
+
+.option-button{
+    display: flex;
+    justify-content: center;
+    margin-right: 3vw;
+}
+
+
+.button {
+    background-color: #007cbe;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 11px 7px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  }
+
+.cancel-button{
+    background-color: #fff;
+    color: #001633;
+}
+
+  .option-title{
+    font-size: 14px;
+    font-weight: 100;
+  }

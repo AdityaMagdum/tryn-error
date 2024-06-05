@@ -1,0 +1,18 @@
+<div class="admin-skills-grid">
+  <div *ngIf="isACDPermissionAvailable" class="admin-skills-grid-container">
+    <cxone-grid id="admin-skills-grid" [hidden]="!emptyUserState" [rowData]="rowData" [columnDefs]="columnDefs" [gridOptions]="gridOptions">
+    </cxone-grid>
+    <cxsupv2-shared-no-results [hidden]="emptyUserState" class="content-wrapper"></cxsupv2-shared-no-results>
+  </div>
+  <div *ngIf="!isACDPermissionAvailable" class="no-permission">
+    <div class="content">
+      <cxone-svg-sprite-icon
+        iconName="icon-no_filters_found"
+        [spritePath]="illustrationsIconsPath"
+        wrapperClass="no-permission-svg"></cxone-svg-sprite-icon>
+      <div class="no-permission-text">
+        {{ 'supervisor.messages.noACDPermissionToViewSkills' | translate }}
+      </div>
+    </div>
+  </div>
+</div>

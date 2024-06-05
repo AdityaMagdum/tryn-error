@@ -1,5 +1,6 @@
 {
     "extends": "../tsconfig.json",
+    "resolveJsonModule" : "true",
     "compilerOptions": {
         "outDir": "../out-tsc/app",
         "types": [
@@ -8,6 +9,7 @@
     },
     "exclude": [
         "../tests/karma/test.ts",
-        "**/*.spec.ts"
+        "**/*.spec.ts",
+        "**/*.worker.ts"
     ]
 }

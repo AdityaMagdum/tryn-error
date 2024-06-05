@@ -5,15 +5,31 @@
   section.main-content {
     display: flex;
     position: relative;
-    top:56px;
+    top: 56px;
     height: calc(100vh - 56px);
     overflow: hidden;
 
     main {
-      overflow: auto;
-      background: #eaf1f7;
-      padding: 0 30px;
+      overflow: hidden;
+      background: var(--black-squeeze);
       flex: 1;
     }
   }
+
+  .no-license-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    span {
+      margin-top: 15px;
+      font-size: 20px;
+      color: #5b7c8c;
+    }
+  }
+}
+
+.softphone-audio {
+  display: none;
 }

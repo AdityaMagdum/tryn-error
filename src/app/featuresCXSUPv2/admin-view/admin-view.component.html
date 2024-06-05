@@ -1,0 +1,65 @@
+<div class="admin-view" [ngClass]="isEnabled ? 'admin-monitoring-screen' : ''">
+  <div class="admin-view-monitoring-container" *ngIf="activeMonitoringContactId !== null && isEnabled">
+    <cxsupv2-monitoring-instance-details [activeMonitoringContactId]="activeMonitoringContactId"></cxsupv2-monitoring-instance-details>
+  </div>
+  <div
+    [hidden]="activeMonitoringContactId !== null && isEnabled"
+    [ngClass]="activeMonitoringContactId !== null && isEnabled ? 'admin-view-container-hidden' : 'admin-view-container'">
+    <div class="admin-view-container-grid">
+      <div class="admin-view-container-grid-right">
+        <ng-template #searchIcon>
+          <cxone-svg-sprite-icon class="search-icon" [iconName]="'icon-Search2'" [spritePath]="applicationIconsPath" [styleData]="adminSearchBarIcon">
+          </cxone-svg-sprite-icon>
+        </ng-template>
+        <sol-text-input
+          [leadingIcon]="searchIcon"
+          type="search"
+          labelText=""
+          labelVarient=""
+          [(ngModel)]="searchQuery"
+          [ngClass]="false ? 'search-bar-condition-1' : 'search-bar-condition-2'"
+          [placeholderText]="'supervisor.liveMonitoring.constants.searchOmibar' | translate"
+          name="name">
+        </sol-text-input>
+        <cxsupv2-toggle-supervisor-view></cxsupv2-toggle-supervisor-view>
+      </div>
+      <sol-tabs [size]="'large'">
+        <sol-tab [titleTemplate]="solSkillsTabTitle" [isActive]="solSkillsTabIsActive">
+          <cxsup-admin-widgets *ngIf="isACDPermissionAvailable" [tabType]="'skills'"></cxsup-admin-widgets>
+          <cxsup-admin-skills-grid
+            [searchQuery]="searchQuery"
+            [selectedTab]="selectedTab"
+            [shouldRefetchApi]="shouldRefetchApi"></cxsup-admin-skills-grid>
+        </sol-tab>
+        <sol-tab [titleTemplate]="solAgentsTabTitle" [isActive]="solAgentsTabIsActive">
+          <cxsup-admin-widgets [tabType]="'agents'"></cxsup-admin-widgets>
+          <cxsup-admin-agents-grid
+            [searchQuery]="searchQuery"
+            [selectedTab]="selectedTab"
+            [shouldRefetchApi]="shouldRefetchApi"></cxsup-admin-agents-grid>
+        </sol-tab>
+        <ng-template #solSkillsTabTitle>
+          <span
+            #skillsTitleTab
+            class="tab-title"
+            (click)="onTabChange('skills')"
+            (keyup)="onTabChange('skills')"
+            [innerHTML]="'supervisor.liveMonitoring.constants.skills' | translate">
+          </span>
+        </ng-template>
+        <ng-template #solAgentsTabTitle>
+          <span
+            #agentTitleTab
+            class="tab-title"
+            (click)="onTabChange('agents')"
+            (keyup)="onTabChange('agents')"
+            [innerHTML]="'supervisor.liveMonitoring.constants.agents' | translate"></span>
+        </ng-template>
+      </sol-tabs>
+    </div>
+    <div class="admin-view-container-panel" *ngIf="false"></div>
+  </div>
+  <div class="admin-view-panel" *ngIf="panelToShow">
+    <cxsup-admin-panels></cxsup-admin-panels>
+  </div>
+</div>

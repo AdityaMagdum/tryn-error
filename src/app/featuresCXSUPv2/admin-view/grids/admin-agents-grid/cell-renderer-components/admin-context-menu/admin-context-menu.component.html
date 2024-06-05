@@ -1,0 +1,201 @@
+<div class="menu-item-iconGrid" *ngIf="isUserLoggedIn">
+  <div
+    *ngIf="forceLogoutEnabled"
+    class="menu-items-actions admin-grid-force-logout"
+    tooltip="{{ 'supervisor.liveMonitoring.monitoringConstants.forceLogout' | translate }}"
+    tooltipAppendToBody="true"
+    containerClass="cxone-tooltip-container monitoring-tooltip-container"
+    placement="bottom">
+    <cxone-svg-sprite-icon
+      (click)="forceLogout()"
+      (keyup.enter)="forceLogout()"
+      [iconName]="'icon-force-log-out'"
+      [spritePath]="applicationIconsPath"
+      [styleData]="iconStyle.forceLogoutEnableAdmin">
+    </cxone-svg-sprite-icon>
+  </div>
+  <!-- monitor-voice-->
+  <div class="menu-items-actions" [ngClass]="isLoggedInUserInACall ? 'disabled-actions' : ''">
+    <div
+      *ngIf="monitoringEnabled && params?.originalChannelCode === 'acdVoice'"
+      class="admin-grid-voice-monitor"
+      [ngClass]="checkIfMonitoringStarted(params, 'voicemonitor') ? 'selected' : ' '"
+      tabindex="0"
+      tooltip="{{ 'supervisor.liveMonitoring.constants.monitorVoice' | translate }}"
+      tooltipAppendToBody="true"
+      containerClass="cxone-tooltip-container monitoring-tooltip-container"
+      placement="bottom">
+      <cxone-svg-sprite-icon
+        *ngIf="
+          !checkIfMonitoringStarted(params, 'voicemonitor') &&
+          !currentUserWithoutContact &&
+          agentState !== 'Available' &&
+          agentState !== 'Unavailable'
+        "
+        (click)="
+          gridContextMenuPopover?.hide();
+          startOrStopMonitoring(params, 'voicemonitor');
+          popovers[params?.contactId + '-' + 'voicemonitor']?.showPopover ? monitorConfirmationPopover.show() : ' '
+        "
+        (keyup.enter)="
+          gridContextMenuPopover?.hide();
+          startOrStopMonitoring(params, 'voicemonitor');
+          popovers[params?.contactId + '-' + 'voicemonitor']?.monitorConfirmationPopover.show() ? voiceMonitorPopover : ' '
+        "
+        class="monitoring-grey-icon"
+        [ngClass]="isLoggedInUserInACall ? 'disabled-cursor' : ''"
+        [iconName]="'icon-monitor'"
+        [spritePath]="applicationIconsPath"
+        [styleData]="iconStyle.monitorAdmin">
+      </cxone-svg-sprite-icon>
+      <cxone-svg-sprite-icon
+        *ngIf="
+          checkIfMonitoringStarted(params, 'voicemonitor') && !currentUserWithoutContact && agentState !== 'Available' && agentState !== 'Unavailable'
+        "
+        (click)="
+          gridContextMenuPopover?.hide();
+          startOrStopMonitoring(params, 'voicemonitor');
+          popovers[params?.contactId + '-' + 'voicemonitor']?.showPopover ? monitorConfirmationPopover.show() : ' '
+        "
+        (keyup.enter)="
+          gridContextMenuPopover?.hide();
+          startOrStopMonitoring(params, 'voicemonitor');
+          popovers[params?.contactId + '-' + 'voicemonitor']?.monitorConfirmationPopover.show() ? voiceMonitorPopover : ' '
+        "
+        class="monitoring-blue-icon"
+        [ngClass]="isLoggedInUserInACall ? 'disabled-cursor' : ''"
+        iconName="icon-voice-monitor-blue"
+        [spritePath]="supervisorApplicationIconsPath"
+        [styleData]="iconStyle.monitorAdmin">
+      </cxone-svg-sprite-icon>
+    </div>
+  </div>
+  <!-- monitor-voice-->
+  <!-- monitor-screen-->
+  <div class="menu-items-actions">
+    <div
+      [ngClass]="checkIfMonitoringStarted(params, 'screenmonitor') ? 'selected' : ' '"
+      *ngIf="
+        agentState === 'Available' || agentState === 'Unavailable'
+          ? hasScreenMonitorRecLicense && monitoringEnabled && cxsupAllowScreenMonitoring
+          : hasScreenMonitorRecLicense && monitoringEnabled
+      "
+      class="admin-grid-screen-monitor"
+      tabindex="0"
+      tooltip="{{ 'supervisor.liveMonitoring.constants.monitorScreen' | translate }}"
+      tooltipAppendToBody="true"
+      containerClass="cxone-tooltip-container monitoring-tooltip-container"
+      placement="bottom">
+      <cxone-svg-sprite-icon
+        *ngIf="!checkIfMonitoringStarted(params, 'screenmonitor') && !currentUserWithoutContact"
+        (click)="
+          startOrStopMonitoring(params, 'screenmonitor');
+          popovers[params?.contactId + '-' + 'screenmonitor']?.showPopover ? screenMonitorConfirmationPopover.show() : ' '
+        "
+        (keyup.enter)="
+          startOrStopMonitoring(params, 'screenmonitor');
+          popovers[params?.contactId + '-' + 'screenmonitor']?.showPopover ? screenMonitorConfirmationPopover.show() : ' '
+        "
+        class="monitoring-grey-icon"
+        [iconName]="'icon-screen'"
+        [spritePath]="applicationIconsPath"
+        [styleData]="iconStyle.monitorAdmin">
+      </cxone-svg-sprite-icon>
+      <cxone-svg-sprite-icon
+        *ngIf="checkIfMonitoringStarted(params, 'screenmonitor') && !currentUserWithoutContact"
+        (click)="
+          startOrStopMonitoring(params, 'screenmonitor');
+          popovers[params?.contactId + '-' + 'screenmonitor']?.showPopover ? screenMonitorConfirmationPopover.show() : ' '
+        "
+        (keyup.enter)="
+          startOrStopMonitoring(params, 'screenmonitor');
+          popovers[params?.contactId + '-' + 'screenmonitor']?.showPopover ? screenMonitorConfirmationPopover.show() : ' '
+        "
+        class="monitoring-blue-icon"
+        iconName="icon-screen-blue"
+        [spritePath]="supervisorApplicationIconsPath"
+        [styleData]="iconStyle.monitorAdmin">
+      </cxone-svg-sprite-icon>
+    </div>
+  </div>
+  <!-- monitor-screen-->
+  <div
+    class="menu-items-actions admin-grid-context-menu"
+    [ngClass]="isLoggedInUserInACall && agentState !== 'Available' && agentState !== 'Unavailable' ? 'disabled-actions' : ''">
+    <div [ngClass]="isLoggedInUserInACall && agentState !== 'Available' && agentState !== 'Unavailable' ? 'disabled-cursor' : ''">
+      <cxsupv2-live-monitoring-admin-agents-action-popover
+        [params]="params"
+        [container]="container"></cxsupv2-live-monitoring-admin-agents-action-popover>
+    </div>
+  </div>
+</div>
+
+<!-- popover-->
+<div class="admin-context-menu-popover">
+  <!-- <div
+    [popover]="screenMonitorPopover"
+    placement="left bottom"
+    triggers=""
+    container="body"
+    [containerClass]="'popover-screenmonitor-container cxone-popover cxone-contextual-popover'"
+    role="tooltip"
+    outsideClick="true"
+    #screenMonitorConfirmationPopover="bs-popover"></div>
+  <div
+    [popover]="voiceMonitorPopover"
+    placement="left bottom"
+    triggers=""
+    container="body"
+    [containerClass]="'popover-voicemonitor-container cxone-popover cxone-contextual-popover'"
+    role="tooltip"
+    outsideClick="true"
+    #monitorConfirmationPopover="bs-popover"></div> -->
+</div>
+
+<ng-template #screenMonitorPopover>
+  <div class="popover-confirmation">
+    <div class="popover-confirmation-wrapper">
+      <div class="inner">
+        {{ 'supervisor.liveMonitoring.monitoringConstants.viewOneScreen' | translate }}
+      </div>
+    </div>
+    <div class="confirm-btns">
+      <sol-button
+        [variant]="'basic'"
+        [size]="'large'"
+        (click)="screenMonitorConfirmationPopover.hide()"
+        (keyup.enter)="screenMonitorConfirmationPopover.hide()">
+        {{ 'supervisor.liveMonitoring.monitoringConstants.dontSwitch' | translate }}
+      </sol-button>
+      <sol-button
+        [variant]="'primary'"
+        [size]="'large'"
+        (click)="screenMonitorConfirmationPopover.hide(); stopExistingMonitoringInstance(params, 'screenmonitor'); startMonitoring(params)"
+        (keyup.enter)="screenMonitorConfirmationPopover.hide(); stopExistingMonitoringInstance(params, 'screenmonitor'); startMonitoring(params)">
+        {{ 'supervisor.liveMonitoring.monitoringConstants.switchScreen' | translate }}
+      </sol-button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #voiceMonitorPopover>
+  <div class="popover-confirmation">
+    <div class="popover-confirmation-wrapper">
+      <div class="inner">
+        {{ 'supervisor.liveMonitoring.monitoringConstants.monitorOneVoice' | translate }}
+      </div>
+    </div>
+    <div class="confirm-btns">
+      <sol-button [variant]="'basic'" [size]="'large'" (click)="monitorConfirmationPopover.hide()" (keyup.enter)="monitorConfirmationPopover.hide()">
+        {{ 'supervisor.liveMonitoring.monitoringConstants.dontSwitch' | translate }}
+      </sol-button>
+      <sol-button
+        [variant]="'primary'"
+        [size]="'large'"
+        (click)="monitorConfirmationPopover.hide(); stopExistingMonitoringInstance(params, currentType); startMonitoring(params)"
+        (keyup.enter)="monitorConfirmationPopover.hide(); stopExistingMonitoringInstance(params, currentType); startMonitoring(params)">
+        {{ 'supervisor.liveMonitoring.monitoringConstants.switchContact' | translate }}
+      </sol-button>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,22 @@
+[
+  {
+    "TenantId": 41,
+    "AID": 100
+  },
+  {
+    "TenantId": 41,
+    "AID": 101
+  },
+  {
+    "TenantId": 42,
+    "AID": 102
+  },
+  {
+    "TenantId": 42,
+    "AID": 103
+  },
+  {
+    "TenantId": 42,
+    "AID": 104
+  }
+]

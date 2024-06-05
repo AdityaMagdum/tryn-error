@@ -1,0 +1,121 @@
+<div class="agents-panel-container">
+  <div class="admin-panel-container flex-child">
+    <div class="agent-panel-header">
+      <!-- <span
+        class="agent-panel-name"
+        cxoneOverflowTooltip
+        [tooltipContent]="agentRowData?.agentRowData?.fullName"
+        tooltipAppendToBody="true"
+        placement="bottom"
+        >{{ agentRowData?.agentRowData?.fullName }}</span
+      > -->
+      <span>
+        <!-- <cxone-svg-sprite-icon
+          class="close-icon"
+          [iconName]="'icon-Close'"
+          [spritePath]="applicationIconsPath"
+          (click)="onCloseButtonClick()"
+          (keyup.enter)="onCloseButtonClick()"
+          tabindex="0">
+        </cxone-svg-sprite-icon> -->
+      </span>
+    </div>
+    <ng-container *ngIf="showAgentsRowSidePanel">
+      <sol-tabs [size]="'large'">
+        <sol-tab
+          *ngIf="isSupervisorPermissionAvailable"
+          [titleTemplate]="solAgentSkillsIcon"
+          [isActive]="solAgentSkillsIsActive"
+          ariaLabel="Agent Skills Icon Template">
+          <ng-container>
+            <cxsupv2-new-agent-skills-panel [agentPanelData]="agentRowData?.agentRowData"></cxsupv2-new-agent-skills-panel
+          ></ng-container>
+        </sol-tab>
+        <sol-tab [titleTemplate]="solAgentActivityIcon" [isActive]="solAgentActivitiesIsActive" ariaLabel="Agent activity Icon Template">
+          <cxsupv2-agents-activity-panel-new [agentPanelData]="agentRowData?.agentRowData"></cxsupv2-agents-activity-panel-new>
+        </sol-tab>
+        <sol-tab [titleTemplate]="solContactHandlingIcon" [isActive]="solContactHandlingIsActive" ariaLabel="Agent Contact Handling Icon Template">
+          <cxsupv2-contact-handling-panel [agentPanelData]="agentRowData?.agentRowData"></cxsupv2-contact-handling-panel>
+        </sol-tab>
+        <sol-tab
+          *ngIf="isWFMTabEnabled()"
+          [titleTemplate]="solScheduleIcon"
+          [isActive]="solWFMSchedulerIsActive"
+          ariaLabel="Agent WFM Schedule Icon Template">
+          <cxsupv2-schedule-panel [agentPanelData]="agentRowData?.agentRowData"></cxsupv2-schedule-panel>
+        </sol-tab>
+      </sol-tabs>
+    </ng-container>
+  </div>
+</div>
+<ng-template #solAgentSkillsIcon>
+  <span
+    class="agent-skills-tab"
+    tooltip="{{ 'supervisor.liveMonitoring.constants.skills' | translate }}"
+    tooltipAppendToBody="true"
+    containerClass="cxone-tooltip-container"
+    placement="top">
+    <cxone-svg-sprite-icon
+      [iconName]="'icon-skills'"
+      class="agent-skills-tab-icon-gray"
+      [spritePath]="applicationIconsPath"
+      [styleData]="adminAgentPanelStyle.skillsIcon"></cxone-svg-sprite-icon>
+  </span>
+</ng-template>
+<ng-template #solAgentActivityIcon>
+  <span
+    class="agent-activity-tab"
+    tooltip="{{ 'supervisor.liveMonitoring.constants.activity' | translate }}"
+    tooltipAppendToBody="true"
+    containerClass="cxone-tooltip-container"
+    placement="top">
+    <cxone-svg-sprite-icon
+      class="agent-activity-tab-icon-gray"
+      [iconName]="'icon-activity'"
+      [spritePath]="applicationIconsPath"
+      [styleData]="adminAgentPanelStyle.activityIcon"></cxone-svg-sprite-icon>
+    <cxone-svg-sprite-icon
+      class="agent-activity-tab-icon-blue"
+      [iconName]="'icon-activity-blue'"
+      [spritePath]="applicationIconsPath"
+      [styleData]="adminAgentPanelStyle.activityIcon"></cxone-svg-sprite-icon>
+  </span>
+</ng-template>
+<ng-template #solContactHandlingIcon>
+  <span
+    class="agent-contact-handling-tab"
+    tooltip="{{ 'supervisor.liveMonitoring.constants.contactHandling' | translate }}"
+    tooltipAppendToBody="true"
+    containerClass="cxone-tooltip-container"
+    placement="top">
+    <cxone-svg-sprite-icon
+      class="agent-contact-handling-tab-icon-gray"
+      [iconName]="'icon-contacthandling'"
+      [spritePath]="applicationIconsPath"
+      [styleData]="adminAgentPanelStyle.contactHandlingIcon"></cxone-svg-sprite-icon>
+    <cxone-svg-sprite-icon
+      class="agent-contact-handling-tab-icon-blue"
+      [iconName]="'icon-contacthandling-blue'"
+      [spritePath]="applicationIconsPath"
+      [styleData]="adminAgentPanelStyle.contactHandlingIcon"></cxone-svg-sprite-icon>
+  </span>
+</ng-template>
+<ng-template #solScheduleIcon>
+  <span
+    class="agent-scheduler-tab"
+    tooltip="{{ 'supervisor.wfm.scheduleTooltip' | translate }}"
+    tooltipAppendToBody="true"
+    containerClass="cxone-tooltip-container"
+    placement="top">
+    <cxone-svg-sprite-icon
+      class="agent-scheduler-tab-icon-gray"
+      [iconName]="'icon-timeoff_requests'"
+      [spritePath]="applicationIconsPath"
+      [styleData]="'height: 20px; width: 26px;'"></cxone-svg-sprite-icon>
+    <cxone-svg-sprite-icon
+      class="agent-scheduler-tab-icon-blue"
+      [iconName]="'icon-timeoff_requests'"
+      [spritePath]="applicationIconsPath"
+      [styleData]="'height: 20px; width: 26px;'"></cxone-svg-sprite-icon>
+  </span>
+</ng-template>

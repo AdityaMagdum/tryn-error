@@ -1,0 +1,21 @@
+<div class="skill-sla-widget-container">
+  <div class="skill-sla-widget-container-matrices">
+    <span class="skill-sla-widget-total">{{ inSLAPercentage ? inSLAPercentage : 0 }}% {{ 'supervisor.insights.constants.inSla' }}</span>
+    <span class="skill-sla-widget">
+      <ul>
+        <li tabindex="1">
+          <span class="skill-sla-widget-slaCount outSLA">{{ outSLASkillsCount ? outSLASkillsCount : 0 }}</span>
+          <span class="skill-sla-widget-slaLabel">
+            {{ 'supervisor.insights.constants.skillOutSLA'}}
+          </span>
+        </li>
+        <li tabindex="1">
+          <span class="skill-sla-widget-slaCount inSLA">{{ inSLASkillsCount ? inSLASkillsCount : 0 }}</span>
+          <span class="skill-sla-widget-slaLabel">
+            {{ 'supervisor.insights.constants.skillInSLA'}}
+          </span>
+        </li>
+      </ul>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,167 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|c:\\users\\amagdum\\dev\\agent-profile-api\\phoneconstraintsapi\\phoneconstraintsapi\\controllers\\agentprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|solutionrelative:phoneconstraintsapi\\controllers\\agentprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|c:\\users\\amagdum\\dev\\agent-profile-api\\phoneconstraintsapi\\phoneconstraintsapi\\controllers\\allconstraintscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|solutionrelative:phoneconstraintsapi\\controllers\\allconstraintscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|c:\\users\\amagdum\\dev\\agent-profile-api\\phoneconstraintsapi\\phoneconstraintsapi\\models\\tenant.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|solutionrelative:phoneconstraintsapi\\models\\tenant.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|c:\\users\\amagdum\\dev\\agent-profile-api\\phoneconstraintsapi\\phoneconstraintsapi\\models\\agentclients.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|solutionrelative:phoneconstraintsapi\\models\\agentclients.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|c:\\users\\amagdum\\dev\\agent-profile-api\\phoneconstraintsapi\\phoneconstraintsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|solutionrelative:phoneconstraintsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|c:\\users\\amagdum\\dev\\agent-profile-api\\phoneconstraintsapi\\phoneconstraintsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|solutionrelative:phoneconstraintsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|c:\\users\\amagdum\\dev\\agent-profile-api\\phoneconstraintsapi\\phoneconstraintsapi\\data\\phonecontraintdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|solutionrelative:phoneconstraintsapi\\data\\phonecontraintdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|c:\\users\\amagdum\\dev\\agent-profile-api\\phoneconstraintsapi\\phoneconstraintsapi\\controllers\\phoneconstraintscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|solutionrelative:phoneconstraintsapi\\controllers\\phoneconstraintscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|c:\\users\\amagdum\\dev\\agent-profile-api\\phoneconstraintsapi\\phoneconstraintsapi\\models\\constraint.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C53F6D84-4366-4C8D-B8DC-4FDCAD1396EF}|PhoneConstraintsAPI\\PhoneConstraintsAPI.csproj|solutionrelative:phoneconstraintsapi\\models\\constraint.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Tenant.json",
+              "DocumentMoniker": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Models\\Tenant.json",
+              "RelativeDocumentMoniker": "PhoneConstraintsAPI\\Models\\Tenant.json",
+              "ToolTip": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Models\\Tenant.json",
+              "RelativeToolTip": "PhoneConstraintsAPI\\Models\\Tenant.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-30T08:46:18.835Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AllConstraintsController.cs",
+              "DocumentMoniker": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Controllers\\AllConstraintsController.cs",
+              "RelativeDocumentMoniker": "PhoneConstraintsAPI\\Controllers\\AllConstraintsController.cs",
+              "ToolTip": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Controllers\\AllConstraintsController.cs",
+              "RelativeToolTip": "PhoneConstraintsAPI\\Controllers\\AllConstraintsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T04:25:13.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "PhoneConstraintsAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\appsettings.json",
+              "RelativeToolTip": "PhoneConstraintsAPI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-24T04:09:22.089Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Program.cs",
+              "RelativeDocumentMoniker": "PhoneConstraintsAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Program.cs",
+              "RelativeToolTip": "PhoneConstraintsAPI\\Program.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAQwBcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T04:49:01.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AgentProfileController.cs",
+              "DocumentMoniker": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Controllers\\AgentProfileController.cs",
+              "RelativeDocumentMoniker": "PhoneConstraintsAPI\\Controllers\\AgentProfileController.cs",
+              "ToolTip": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Controllers\\AgentProfileController.cs",
+              "RelativeToolTip": "PhoneConstraintsAPI\\Controllers\\AgentProfileController.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAgwDsAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T11:52:44.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PhoneContraintDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Data\\PhoneContraintDbContext.cs",
+              "RelativeDocumentMoniker": "PhoneConstraintsAPI\\Data\\PhoneContraintDbContext.cs",
+              "ToolTip": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Data\\PhoneContraintDbContext.cs",
+              "RelativeToolTip": "PhoneConstraintsAPI\\Data\\PhoneContraintDbContext.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAowBQAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-24T05:18:29.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AgentClients.json",
+              "DocumentMoniker": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Models\\AgentClients.json",
+              "RelativeDocumentMoniker": "PhoneConstraintsAPI\\Models\\AgentClients.json",
+              "ToolTip": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Models\\AgentClients.json",
+              "RelativeToolTip": "PhoneConstraintsAPI\\Models\\AgentClients.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-30T06:41:11.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PhoneConstraintsController.cs",
+              "DocumentMoniker": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Controllers\\PhoneConstraintsController.cs",
+              "RelativeDocumentMoniker": "PhoneConstraintsAPI\\Controllers\\PhoneConstraintsController.cs",
+              "ToolTip": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Controllers\\PhoneConstraintsController.cs",
+              "RelativeToolTip": "PhoneConstraintsAPI\\Controllers\\PhoneConstraintsController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAwwCgAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T15:10:08.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Constraint.json",
+              "DocumentMoniker": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Models\\Constraint.json",
+              "RelativeDocumentMoniker": "PhoneConstraintsAPI\\Models\\Constraint.json",
+              "ToolTip": "C:\\Users\\amagdum\\dev\\agent-profile-api\\PhoneConstraintsAPI\\PhoneConstraintsAPI\\Models\\Constraint.json",
+              "RelativeToolTip": "PhoneConstraintsAPI\\Models\\Constraint.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-30T08:46:40.991Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

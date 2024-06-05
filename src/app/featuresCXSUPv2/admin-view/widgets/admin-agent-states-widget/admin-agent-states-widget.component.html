@@ -1,0 +1,24 @@
+<div class="admin-agent-states-widget-container">
+  <div class="admin-agent-states-widget-container-metrices">
+    <span class="admin-agent-states-widget-total"
+      >{{ totalGridData ? totalGridData : 0 }} {{ 'supervisor.liveMonitoring.constants.total'}}</span
+    >
+    <span class="admin-agent-states-widget">
+      <ul>
+        <li tabindex="1" *ngFor="let categoryLabel of agentStateCategories; let i = index; trackBy: trackByFn">
+          <span class="admin-agent-states-widget-percentage" tooltipAppendToBody="true" containerClass="cxone-tooltip-container" placement="top"
+            >{{ categoryLabel?.y ? categoryLabel?.y : 0 }}
+          </span>
+          <span class="admin-agent-states-widget-state-category">
+            <cxone-svg-sprite-icon
+              [iconName]="categoryLabel?.icon"
+              [spritePath]="supervisorApplicationIconsPath"
+              [styleData]="'width:12px;height:12px;'">
+            </cxone-svg-sprite-icon>
+          </span>
+          <span class="admin-agent-states-widget-label">{{ categoryLabel?.labelText}}</span>
+        </li>
+      </ul>
+    </span>
+  </div>
+</div>

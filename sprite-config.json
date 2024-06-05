@@ -1,0 +1,71 @@
+{
+    "dest": "src/",
+    "log": "info",
+    "mode": {
+        "symbol": {
+            "dest": "assets/svg/sprites/",
+            "sprite": "supervisor-application-icons.sprite-1.6.svg"
+        }
+    },
+    "shape": {
+        "id": {
+            "generator": "icon-"
+        },
+        "dimension": {
+            "maxWidth": 20,
+            "maxHeight": 20
+        },
+        "transform": "['svgo']"
+    },
+    "svg": {
+        "xmlDeclaration": false,
+        "rootAttributes": {
+            "aria-hidden": true,
+            "style": "position: absolute; width: 0; height: 0; overflow: hidden;",
+            "version": "1.1",
+            "xmlns": "http://www.w3.org/2000/svg",
+            "xmlns:xlink": "http://www.w3.org/1999/xlink"
+        }
+    },
+    "svgmin": {
+        "options": {
+            "plugins": [
+                {
+                    "removeViewBox": false
+                },
+                {
+                    "removeHiddenElems": false
+                },
+                {
+                    "removeUselessStrokeAndFill": false
+                },
+                {
+                    "removeUnknownsAndDefaults": false
+                },
+                {
+                    "removeScriptElement": true
+                },
+                {
+                    "removeStyleElement": true
+                },
+                {
+                    "removeTitle": true
+                },
+                {
+                    "removeAttrs": {
+                        "attrs": [
+                            "xmlns"
+                        ]
+                    }
+                },
+                {
+                    "addAttributesToSVGElement": {
+                        "attributes": [
+                            "xmlns= 'http://www.w3.org/2000/svg'"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,4 @@
+<div class="duration-container">
+  <p class="timer" *ngIf="agentDurationComponentTimeDifference">{{ agentDurationComponentTimeDifference | timeFormatter }}</p>
+  <p *ngIf="!agentDurationComponentTimeDifference">-</p>
+</div>

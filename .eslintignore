@@ -1,4 +1,5 @@
 karma.conf.js
 node_modules/**/*.js
 build/
-vendor/**/*.js
+ac_webrtc.min.js
+ac-webrtc-service.ts

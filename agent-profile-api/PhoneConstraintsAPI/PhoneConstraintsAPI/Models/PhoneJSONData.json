@@ -1,0 +1,50 @@
+[
+  {
+    "ConstraintID": 1234,
+    "Key": "ANI",
+    "Value": null,
+    "Default": "Enabled"
+  },
+  {
+    "ConstraintID": 1234,
+    "Key": "Mute",
+    "Value": null,
+    "Default": "Enabled"
+  },
+  {
+    "ConstraintID": 1234,
+    "Key": "Mask",
+    "Value": null,
+    "Default": "Enabled"
+  },
+  {
+    "ConstraintID": 1234,
+    "Key": "Record",
+    "Value": null,
+    "Default": "Enabled"
+  },
+  {
+    "ConstraintID": 1234,
+    "Key": "Transfer / Conf",
+    "Value": null,
+    "Default": "Enabled"
+  },
+  {
+    "ConstraintID": 1234,
+    "Key": "Commit",
+    "Value": null,
+    "Default": "Enabled"
+  },
+  {
+    "ConstraintID": 1244,
+    "Key": "Launch",
+    "Value": null,
+    "Default": "Enabled"
+  },
+  {
+    "ConstraintID": 1200,
+    "Key": "Hangup",
+    "Value": null,
+    "Default": "Enabled"
+  }
+]

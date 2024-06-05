@@ -1,0 +1,36 @@
+.skill-activity {
+  display: flex;
+  &-name {
+    color: #404040;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0;
+    // text-transform: capitalize;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    &-bold {
+      font-weight: bold;
+    }
+    &:hover {
+      font-weight: bold;
+    }
+  }
+  &-info-icon {
+    margin-right: 5px;
+    .svg-sprite-icon {
+      display: flex !important;
+    }
+  }
+  &-channel-details {
+    display: flex;
+    align-items: center;
+  }
+}
+.cxone-tooltip-container.all-row {
+  margin-top: -80px;
+}
+span.ag-header-cell-text {
+  font-size: 13px !important;
+  margin-top: 2px;
+}

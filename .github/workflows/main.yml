@@ -1,0 +1,121 @@
+name: Preflight-Checks
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  pull_request:
+    branches: [ master ]
+        
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  jira-id-validate:
+    name: jira id validate
+    uses: nice-cxone/github-actions-shared/.github/workflows/validate-jira-id.yaml@master
+    secrets: inherit
+  build:
+    name: Web Preflight Checks
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: 'arn:aws:iam::369498121101:role/nice-devops-github-role'
+          aws-region: us-west-2
+
+      - name: Copy files to the test website with the AWS CLI
+        run: |
+          export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain nice-devops --domain-owner 369498121101 --query authorizationToken --output text`
+          touch ~/.npmrc
+          echo "registry=https://nice-devops-369498121101.d.codeartifact.us-west-2.amazonaws.com/npm/cxone-npm/" > ~/.npmrc
+          echo "//nice-devops-369498121101.d.codeartifact.us-west-2.amazonaws.com/npm/cxone-npm/:always-auth=true" >> ~/.npmrc
+          echo "//nice-devops-369498121101.d.codeartifact.us-west-2.amazonaws.com/npm/cxone-npm/:_authToken=${CODEARTIFACT_AUTH_TOKEN}" >> ~/.npmrc
+
+      # Runs a set of commands using the runners shell
+      - name: Install Dependencies
+        run: |
+          npm install --legacy-peer-deps
+
+      - name: Linting
+        run: |
+          ###########
+          # Validate the linting rules are honored
+          ###########
+          npm run lint
+
+      - name: Build Prod
+        run: |
+          ###########
+          # Build Code and Run Test Cases
+          ###########
+          npm run build-prod
+
+      - name: Get sonar project key
+        id: read-project-key
+        uses: nice-cxone/github-actions-shared/utils/read-property-from-file@master
+        with:
+          file: sonar-project.properties
+          property: sonar.projectKey
+
+      - name: Get sonar project name
+        id: read-project-name
+        uses: nice-cxone/github-actions-shared/utils/read-property-from-file@master
+        with:
+          file: sonar-project.properties
+          property: sonar.projectName
+
+      - name: Set notice
+        run: |
+          echo "::notice title=Sonar Key::${{ steps.read-project-key.outputs.property-value }}"
+          echo "::notice title=Sonar Name::${{ steps.read-project-name.outputs.property-value }}"
+
+      - name: update sonar project key
+        id: update-property
+        run: |
+          PROJECT_KEY=${{ steps.read-project-key.outputs.property-value }}
+          PROJECT_NAME=${{ steps.read-project-name.outputs.property-value }}
+          if [ -z "$PROJECT_KEY" ];
+          then 
+            echo -e "\nsonar.projectKey=com.nice.$PROJECT_NAME" >> sonar-project.properties
+          else
+            sed -i "/^sonar.projectKey=com.nice./! s/sonar.projectKey=/sonar.projectKey=com.nice./g" sonar-project.properties
+          fi
+            sed -i "/sonar.host.url/d" sonar-project.properties
+            echo -e "\nsonar.coverage.jacoco.xmlReportPaths=**/jacoco-reports/jacoco.xml" >> sonar-project.properties
+            sed -i "s/sonar.python.coverage.reportPath=/sonar.python.coverage.reportPaths=/g" sonar-project.properties
+
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            SONAR_HOST_URL: ${{ vars.SONAR_URL }}
+      
+        # Check the Quality Gate status.
+      - name: SonarQube Quality Gate check
+        id: sonarqube-quality-gate-check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        # Force to fail step after specific time.
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ vars.SONAR_URL }}
+        # Optionally you can use the output from the Quality Gate in another step.
+        # The possible outputs of the `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
+      
+      - name: "show SonarQube Quality Gate Status value"
+        if: always()
+        run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
+      
+      - name: Wait for the quality gate result
+        if: always()
+        run: sleep 5

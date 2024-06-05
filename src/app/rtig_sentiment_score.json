@@ -1,0 +1,31 @@
+{
+    "rtigSentimentIcon": [
+        {
+            "min": 0,
+            "max": 30,
+            "color": "#FF2B53",
+            "label": "bad score",
+            "severity": "high",
+            "imageSrc": "icon-sad-emoji",
+            "value": "Negative"
+        },
+        {
+            "min": 30,
+            "max": 70,
+            "color": "#FFBA1F",
+            "label": "neutral score",
+            "severity": "medium",
+            "imageSrc": "icon-netural-emoji",
+            "value": "Neutral"
+        },
+        {
+            "min": 70,
+            "max": 100,
+            "color": "#36C700",
+            "label": "very good score",
+            "severity": "low",
+            "imageSrc": "icon-happy-emoji",
+            "value": "Positive"
+        }
+    ]
+}

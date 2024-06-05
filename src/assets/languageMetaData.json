@@ -1,6 +1,7 @@
 {
   "cxoneComponents": [
     "cxone-core-components/strings_en_US.json",
-    "cxone-domain-components/strings_en_US.json"
+    "cxone-domain-components/strings_en_US.json",
+    "cxone-qm-library/strings_en_US.json"
   ]
 }

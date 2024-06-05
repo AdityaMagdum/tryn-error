@@ -7,20 +7,22 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
-//declare const require: any;
-//const testUtils = require.context('./', true, /\.spec.js$/);
-//testUtils.keys().map(testUtils);
-
-//const angularCodeToTest = require.context('../../src/app', true, /^(?!.*(.e2e.ts|spec.ts|po.ts|page.ts)).*\.ts$/);
-//angularCodeToTest.keys().map(angularCodeToTest);
+declare const require: {
+  context(path: string, deep?: boolean, filter?: RegExp): {
+    keys(): string[];
+    <T>(id: string): T;
+  };
+};
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting(), {
-    teardown: { destroyAfterEach: true }
-});
+  platformBrowserDynamicTesting(),
+  {
+    teardown: { destroyAfterEach: false }
+  }
+);
 // Then we find all the tests.
-//const context = require.context('../../src', true, /^(?!.*(prot.spec.(js|ts))).*\.spec.(js|ts)$/);
+const context = require.context('../../src/', true, /\.spec\.ts$/);
 // And load the modules.
-//context.keys().map(context);
+context.keys().map(context);

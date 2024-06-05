@@ -1,11 +1,29 @@
+<div class="softphone-audio">
+  <audio #audioControl class="audioControl" controls autoPlay controlsList="noplaybackrate nodownload nofullscreen"></audio>
+</div>
 <div class="grid-wrapper">
   <cxone-spinner class="appSpinner"></cxone-spinner>
   <cxone-action-bar></cxone-action-bar>
-  <cxone-header-v2></cxone-header-v2>
+  <cxone-header></cxone-header>
   <section class="main-content">
-    <cxone-sidebar-v2 [isToggleButtonEnabled]="sidebarToggleButton" [isCollapsed]="sidebarCollapsed"></cxone-sidebar-v2>
-    <main role="main">
+    <!-- <cxone-sidebar
+      role="navigation"
+      [isToggleButtonEnabled]="sidebarToggleButton"
+      [isCollapsed]="sidebarCollapsed"
+      (sidebarStateChanged)="sidebarStateUpdated($event)"></cxone-sidebar> -->
+    <cxsupv2-sidebar role="navigation"></cxsupv2-sidebar>
+    <main role="main" *ngIf="supervisorLicenseEnabled">
       <router-outlet></router-outlet>
+    </main>
+    <main role="main" class="no-license-banner" *ngIf="!supervisorLicenseEnabled">
+      <cxone-svg-sprite-icon
+        [ngClass]="'banner-lock-icon'"
+        [spritePath]="applicationIconsPath"
+        [iconName]="'icon-newlock'"
+        [styleData]="'height: 60px; width: 60px; fill: #009DD8;'"></cxone-svg-sprite-icon>
+      <span>
+        {{ 'supervisor.messages.noLicenseText' | translate }}
+      </span>
     </main>
   </section>
 </div>

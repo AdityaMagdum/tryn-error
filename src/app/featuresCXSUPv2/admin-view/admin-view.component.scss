@@ -1,0 +1,237 @@
+html,
+body {
+  height: 100%;
+}
+
+.admin-monitoring-screen {
+  display: flex;
+}
+
+.admin-view {
+  display: flex;
+  padding: 1.2rem 1rem 0;
+  height: 100%;
+  width: 100%;
+
+  &-tab-container {
+    height: 100%;
+    margin-top: 75px;
+    position: relative;
+  }
+
+  &-monitoring-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  &-panel {
+    width: calc(40% - 1rem);
+    min-width: calc(40% - 1rem);
+    margin-left: 16px;
+    @media (min-width: 1900px) {
+      min-width: 40%;
+    }
+  }
+  &-container-hidden {
+    display: none !important;
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    overflow: hidden;
+
+    &-grid {
+      display: flex;
+      background-color: #fff;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      &-right {
+        position: absolute;
+        width: calc(100% - 285px);
+        height: 52px;
+        right: 0;
+        .search-bar-condition-1 {
+          position: absolute;
+          z-index: 9;
+          right: 178px;
+          top: 8px;
+          min-width: 130px;
+          max-width: 300px;
+          width: 100%;
+        }
+        .search-bar-condition-2 {
+          position: absolute;
+          z-index: 9;
+          right: 178px;
+          top: 8px;
+          min-width: 130px;
+          max-width: 300px;
+          width: calc(100% - 180px);
+        }
+        .search-icon {
+          position: relative;
+          top: 3px;
+        }
+      }
+
+      sol-tabs {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+
+        .tabs-large mat-tab-group.mat-tab-group.mat-primary .mat-tab-header {
+          height: 52px;
+          background: #f9fbfd;
+          padding: 0;
+
+          .mat-tab-labels {
+            height: 100%;
+            .mat-tab-label {
+              min-width: 140px;
+
+              .icon-text {
+                padding: 0px;
+              }
+
+              &:hover {
+                background-color: #f2f7fa;
+              }
+
+              .mat-tab-label-content {
+                height: 45px;
+                text-transform: uppercase;
+                padding-top: 6px;
+                text-align: center;
+                .tab-title {
+                  width: auto;
+                  padding: 0.563rem 3rem;
+                  height: 45px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  cxsupv2-toggle-supervisor-view {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    z-index: 9;
+    width: 150px;
+    border: 0.5px solid #dae2e8;
+    border-radius: 4px;
+    text-align: left;
+    color: var(--free-speech-blue);
+
+    &::before {
+      content: "";
+      position: absolute;
+      border-top: 36px solid #d2d8db;
+      width: 1px;
+      left: -10px;
+    }
+
+    .toggle-view-container.popover {
+      margin-right: 15px;
+      width: max-content;
+      .popover-arrow.arrow {
+        top: -10px;
+      }
+      .popover-body {
+        border-radius: 4px;
+      }
+      .popover-confirmation-wrapper {
+        margin-bottom: 10px;
+        font-family: OpenSans, sans-serif;
+        line-height: 17.7px;
+      }
+      .confirm-btns {
+        margin-top: 0px;
+        display: inline-flex;
+        gap: 12px;
+        button {
+          width: fit-content;
+        }
+      }
+      sol-button.cancel-btn {
+        button {
+          background-color: rgba(255, 255, 255, 0.2);
+          color: rgb(255, 255, 255);
+          border: none;
+          width: fit-content;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  cxsupv2-monitoring-instance-details {
+    width: 100% !important;
+    min-width: 60%;
+  }
+
+  .sol-input-container {
+    // padding: 0 0 0 0.63rem !important;
+    gap: 10px !important;
+    .sol-text-input {
+      background: #ffffff 0% 0% no-repeat padding-box;
+      opacity: 1;
+      input {
+        &:focus-visible {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .tabs-large mat-tab-group.mat-tab-group.mat-primary .mat-tab-header .mat-tab-list .mat-tab-labels .mat-tab-label span.icon-text {
+    font-family: OpenSans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--free-speech-blue);
+  }
+
+  .tabs-large mat-tab-group.mat-tab-group.mat-primary .mat-tab-header .mat-tab-list .mat-tab-labels .mat-tab-label-active span.icon-text {
+    color: #007ab8;
+    font-weight: 700;
+  }
+
+  .tabs-large mat-tab-group.mat-tab-group.mat-primary .mat-tab-header .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+    border-bottom: 2px solid #007ab8;
+    pointer-events: none;
+  }
+
+  .ag-theme-balham .ag-root-wrapper .ag-root-wrapper-body .ag-root .ag-body-viewport .ag-row .ag-cell {
+    font-family: OpenSans, sans-serif;
+    font-weight: 400;
+    color: #2e2e2e;
+    font-size: 14px;
+  }
+
+  .mat-tab-body-content {
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    cxsup-admin-agents-grid,
+    cxsup-admin-skills-grid {
+      min-height: 1px;
+      height: 100%;
+    }
+  }
+}
+
+.spinner {
+  display: none !important;
+}

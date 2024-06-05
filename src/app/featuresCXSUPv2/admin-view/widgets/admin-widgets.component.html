@@ -1,0 +1,10 @@
+<div class="admin-widgets">
+  <div class="admin-widgets-wrapper" tabindex="1">
+    <div class="admin-widgets-slider-box" *ngIf="tabType === 'skills'">
+      <cxsup-admin-skills-sla-widget [selectedTab]="tabType" [skillActivities]="skillActivities"></cxsup-admin-skills-sla-widget>
+    </div>
+    <div class="admin-widgets-slider-box" *ngIf="tabType === 'agents'">
+      <cxsup-admin-agent-states-widget [selectedTab]="tabType" [agentGridData]="agentGridData"></cxsup-admin-agent-states-widget>
+    </div>
+  </div>
+</div>

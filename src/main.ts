@@ -1,17 +1,17 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
 import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import { PasswordExpiringService } from '@niceltd/cxone-core-services';
+import { PasswordExpiringService } from 'cxone-core-services';
 
 if (environment.production) {
-	enableProdMode();
+  enableProdMode();
 }
 
-bootstrapApplication(AppComponent, appConfig)
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
   .then(platformRef => {
-    const service: PasswordExpiringService = platformRef.injector.get(PasswordExpiringService);
+    const service = platformRef.injector.get(PasswordExpiringService);
     service.showPasswordToastIfExpiring();
-})
-.catch((err) => console.error(err));
+  })
+  .catch(err => console.error(err));

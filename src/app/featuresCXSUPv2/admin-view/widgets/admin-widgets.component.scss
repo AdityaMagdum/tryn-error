@@ -1,0 +1,35 @@
+.admin-widgets {
+  border-bottom: 1px solid #d2d8db;
+  .cxone-accordion .cxone-accordion-tab .tab-header .header {
+    text-align: right;
+    padding-right: 20px;
+  }
+  .admin-widgets-slider {
+    padding: 36px 0;
+    position: relative;
+    .swiper-wrapper {
+      align-items: center;
+    }
+    .swiper-slide {
+      width: auto;
+    }
+  }
+
+  .admin-widgets-slider-box {
+    min-width: 170px;
+    margin: 0px 50px;
+    &-big {
+      // min-width: 650px;
+      margin: 0px 40px;
+    }
+  }
+  &:hover {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: block;
+      &.swiper-button-disabled {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<head>
+    <script src="https://kit.fontawesome.com/7fc4c8b178.js" crossorigin="anonymous"></script>
+</head>
+<div class="configure-profile-header">
+<span class="header-title">Configure Profile</span>
+<div class="content">
+    <div class="catalog-items">
+        <div class="nav-links" id="nav-links">
+            <div *ngFor="let item of catalogs; let i=index" routerLinkActive="active">
+                    <div *ngIf="item.sub_menu_1.length === 0" class="dropdown-title" (click)="callComponent(item.component_name)" (keyup)="enter">
+                            <span class="title-name">{{ item.name }}</span>
+                    </div>
+                    <div *ngIf="item.sub_menu_1.length > 0" class="dropdown-title"  (click)="showSubmenu(i)" (keyup)="enter">
+                                    <span class="title-name">{{ item.name }}</span>
+                            <div class="dropdown-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 10px; heigth:10px;">
+                                    <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
+                                </svg>
+                            </div>
+                    </div>
+                <div *ngIf="activeSubmenus[i]" class="nav-links-sub" [class.blank]="item.sub_menu_1.length===0">
+                    <div class="sub-item-titles" *ngFor="let item_sub of item.sub_menu_1" routerLinkActive="active">
+                            <div class="sub-item-title" [class.selected]="currentView===item_sub.component_name && currentView!==null" (click)="callComponent(item_sub.component_name)" (keyup)="enter">
+                                <span>{{ item_sub.name }}</span>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="default-img" *ngIf="currentView==='default' || currentView===null">
+        </div>
+        <div class="settings-area" *ngIf="currentView!=='default' && currentView!==null">
+            <ng-container [ngSwitch]="currentView">
+                <app-phone-settings *ngSwitchCase="'app-phone-settings'" [state]='constraints'></app-phone-settings>
+                <app-email-settings *ngSwitchCase="'app-email-settings'"></app-email-settings>
+            </ng-container>
+        </div>
+</div>
+</div>
